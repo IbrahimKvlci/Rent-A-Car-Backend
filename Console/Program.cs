@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
@@ -6,20 +7,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        CarManager carManager = new CarManager(new InMemoryCarDal());
-
-        carManager.Add(new Car { Id = 4, BrandId = 1, ColorId = 2, DailyPrice = 50, ModelYear = 2018, Description = "Iyi" });
-        carManager.Delete(new Car { Id = 1 });
-        carManager.Update(new Car { Id = 2, BrandId = 1, ColorId = 1, DailyPrice = 5, ModelYear = 1999, Description = "Kotu" });
-
-        //foreach (var car in carManager.GetAll())
-        //{
-        //    Console.WriteLine(car.ModelYear+" "+car.Description);
-        //}
-
-        foreach (var car in carManager.GetByBrandId(1))
-        {
-            Console.WriteLine(car.ModelYear);
-        }
+        RentalManager rentalManager = new RentalManager(new EfRentalDal());
+        rentalManager.Add(new Rental { Id=1,CarId=1,CustomerId=1,RentDate=new DateTime(2022, 08, 19, 11, 15, 00) });
+        rentalManager.Update(new Rental { Id = 1, CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 08, 19, 11, 15, 00),ReturnDate=DateTime.Now });
     }
 }
