@@ -13,5 +13,9 @@ namespace Business.Constants
         public static string ProductUpdated = "Product Updated";
         public static string ProductsListed = "Products Listed!";
         public static string ProductInvalid = "Product Invalid!";
+        public static string ImageSaved="Image Saved!";
+        public static string ImageDeleted="Image Deleted!";
+        public static string ImageUpdated="Image Updated!";
+        public static string ImagesListed="Images Listed!";
     }
 }

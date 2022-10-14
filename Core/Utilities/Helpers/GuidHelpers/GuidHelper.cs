@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Utilities.Helpers.GuidHelpers
+{
+    public class GuidHelper : IGuidHelper
+    {
+        public string CreateGuid()
+        {
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();    
+        }
+    }
+}
