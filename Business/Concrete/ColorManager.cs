@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
@@ -32,6 +33,12 @@ namespace Business.Concrete
         {
             _iColorDal?.Delete(color);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<Color>> GetAll()
+        {
+            var result = _iColorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(result);
         }
 
         public IResult Update(Color color)

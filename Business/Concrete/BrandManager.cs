@@ -33,6 +33,12 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IDataResult<List<Brand>> GetAll()
+        {
+            var result = _ibrandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(result);
+        }
+
         public IResult Update(Brand brand)
         {
             _ibrandDal.Update(brand);
